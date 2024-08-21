@@ -14,9 +14,11 @@
 
     <main>
         <section id="first-section">
-            <h2>Quieres agregar algún producto a la lista?</h2>
+            <h2>¿Quieres agregar algún producto a la lista?</h2>
             <button onclick="finish()">NO</button>
             <button onclick="nextPage()">SI</button>
+            <h2>¿Quieres eliminar un elemento de la lista?</h2>
+            <button onclick="eliminate()">Eliminar</button>
         </section>
 
         <section id="second-section" hidden>
@@ -130,7 +132,13 @@
 
         <section id="final-section" hidden>
             <h2>Lista de Compras:</h2>
-            <p id="list-items"></p>
+        </section>
+
+        <section id="delete-section" hidden>
+            <h2>Elije que producto deseas eliminar:</h2>
+            <input type="text" id="delete">
+            <button onclick="deleteProduct()">Eliminar</button>
+            <h2><br><br>Lista de elementos hasta ahora:</h2>
         </section>
     </main>
 
