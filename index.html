@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <meta name="author" content="Miguel Angel Ulmi">
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenido a su Shopping List</h1>
+    </header>
+
+    <main>
+        <section id="first-section">
+            <h2>Quieres agregar algún producto a la lista?</h2>
+            <button onclick="finish()">NO</button>
+            <button onclick="nextPage()">SI</button>
+        </section>
+
+        <section id="second-section" hidden>
+            <h2>¿Qué alimento deseas agregar?</h2>
+            <input list="products" id="product">
+                <datalist id="products">
+                    <option value="Aguacate">Aguacate</option>
+                    <option value="Almendra">Almendra</option>
+                    <option value="Apio">Apio</option>
+                    <option value="Arroz">Arroz</option>
+                    <option value="Aceite">Aceite</option>
+                    <option value="Ajo">Ajo</option>
+                    <option value="Albahaca">Albahaca</option>
+                    <option value="Banana">Banana</option>
+                    <option value="Batata">Batata</option>
+                    <option value="Brócoli">Brócoli</option>
+                    <option value="Calabacín">Calabacín</option>
+                    <option value="Calabaza">Calabaza</option>
+                    <option value="Carne">Carne</option>
+                    <option value="Cebolla">Cebolla</option>
+                    <option value="Cereales">Cereales</option>
+                    <option value="Champiñón">Champiñón</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Coliflor">Coliflor</option>
+                    <option value="Espárrago">Espárrago</option>
+                    <option value="Espinaca">Espinaca</option>
+                    <option value="Fresas">Fresas</option>
+                    <option value="Frutos Secos">Frutos Secos</option>
+                    <option value="Galletas">Galletas</option>
+                    <option value="Garbanzo">Garbanzo</option>
+                    <option value="Gordolobo">Gordolobo</option>
+                    <option value="Harina">Harina</option>
+                    <option value="Hígados">Hígados</option>
+                    <option value="Huevo">Huevo</option>
+                    <option value="Jengibre">Jengibre</option>
+                    <option value="Jitomate">Jitomate</option>
+                    <option value="Leche">Leche</option>
+                    <option value="Lentejas">Lentejas</option>
+                    <option value="Maíz">Maíz</option>
+                    <option value="Manzana">Manzana</option>
+                    <option value="Melaza">Melaza</option>
+                    <option value="Melón">Melón</option>
+                    <option value="Mantequilla">Mantequilla</option>
+                    <option value="Manteca">Manteca</option>
+                    <option value="Naranja">Naranja</option>
+                    <option value="Nuez">Nuez</option>
+                    <option value="Oregano">Oregano</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Pepino">Pepino</option>
+                    <option value="Pera">Pera</option>
+                    <option value="Pescado">Pescado</option>
+                    <option value="Pollo">Pollo</option>
+                    <option value="Queso">Queso</option>
+                    <option value="Requesón">Requesón</option>
+                    <option value="Sal">Sal</option>
+                    <option value="Salsa">Salsa</option>
+                    <option value="Sopa">Sopa</option>
+                    <option value="Tomate">Tomate</option>
+                    <option value="Trigo">Trigo</option>
+                    <option value="Uva">Uva</option>
+                    <option value="Yogur">Yogur</option>
+                    <option value="Zanahoria">Zanahoria</option>
+                    <option value="Alcachofa">Alcachofa</option>
+                    <option value="Berro">Berro</option>
+                    <option value="Cacao">Cacao</option>
+                    <option value="Cangrejo">Cangrejo</option>
+                    <option value="Cebollino">Cebollino</option>
+                    <option value="Coco">Coco</option>
+                    <option value="Frambuesa">Frambuesa</option>
+                    <option value="Guisante">Guisante</option>
+                    <option value="Higo">Higo</option>
+                    <option value="Jugo">Jugo</option>
+                    <option value="Kiwis">Kiwis</option>
+                    <option value="Langosta">Langosta</option>
+                    <option value="Lima">Lima</option>
+                    <option value="Mango">Mango</option>
+                    <option value="Menta">Menta</option>
+                    <option value="Mostaza">Mostaza</option>
+                    <option value="Papas">Papas</option>
+                    <option value="Perejil">Perejil</option>
+                    <option value="Pimiento">Pimiento</option>
+                    <option value="Rúcula">Rúcula</option>
+                    <option value="Salmón">Salmón</option>
+                    <option value="Sardina">Sardina</option>
+                    <option value="Tamarindo">Tamarindo</option>
+                    <option value="Tomate Seco">Tomate Seco</option>
+                    <option value="Yuca">Yuca</option>
+                </datalist>
+
+            <h2>Categoría a la que pertenece el producto</h2>
+            <select id="categor-selected">
+                <option value="Aceites y Grasas">Aceites y Grasas</option>
+                <option value="Carnes">Carnes</option>
+                <option value="Cereales y Granos">Cereales y Granos</option>
+                <option value="Condimentos y Especias">Condimentos y Especias</option>
+                <option value="Conservas y Enlatados">Conservas y Enlatados</option>
+                <option value="Dulces y Repostería">Dulces y Repostería</option>
+                <option value="Frutas y Vegetales">Frutas y Vegetales</option>
+                <option value="Harinas y Panificados">Harinas y Panificados</option>
+                <option value="Lácteos">Lácteos</option>
+                <option value="Legumbres">Legumbres</option>
+                <option value="Limpieza e Higiene">Limpieza e Higiene</option>
+                <option value="Mascotas">Mascotas</option>
+                <option value="Pastas">Pastas</option>
+                <option value="Perfumería">Perfumería</option>
+                <option value="Pescados y Mariscos">Pescados y Mariscos</option>
+            </select>            
+            
+            <button onclick="addProduct()">Agregar</button>
+        </section>
+
+        <section id="final-section" hidden>
+            <h2>Lista de Compras:</h2>
+            <p id="list-items"></p>
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://github.com/MigueBlack93" target="_blank">Desarrollado por Miguel Ulmi -2024</a>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
