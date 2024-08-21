@@ -24,7 +24,7 @@ let categories = [
         items: []
     },
     {
-        category: "Vegetales",
+        category: "Frutas y Vegetales",
         items: []
     },
     {
@@ -127,8 +127,9 @@ function deleteProduct(){
 
     if(index != -1){
         if(prompt("¿Seguro desea eliminar este producto? Escriba si o no.") == "si"){
-            deleted = categories[categoryItem].items.splice(index, index+1);
-            prompt(`El producto ${deleted} ha sido eliminado exitosamente`);
+            deleted = categories[categoryItem].items.splice(itemToDelete, index+1);
+            console.log(deleted);
+            alert(`El producto ${deleted} ha sido eliminado exitosamente`);
             categoryItem = -1;
             eliminate();
         }
