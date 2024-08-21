@@ -80,6 +80,10 @@ function nextPage(){
     clearScreen("first-section", "second-section");
 }
 
+function nextPage2(){
+    clearScreen("final-section", "second-section");
+}
+
 function addProduct(){
     let selectedCategory = selecValue("categor-selected");
     let item = selecValue("product");
@@ -95,8 +99,12 @@ function addProduct(){
 }
 
 function finish(){
-    clearScreen("first-section", "final-section");
-    printProducts("final-section");
+    if(flag==0){
+        alert("¡Todavía no se ha agregado ningún producto al carrito!");
+    }else{
+        clearScreen("first-section", "final-section");
+        printProducts("results");
+    }
     /*
     categories.forEach(category => {
         h3Title.textContent += `${category.category}:`;
@@ -115,9 +123,13 @@ function eliminate(){
         alert("¡Todavía no se ha agregado ningún producto al carrito!");
     }
     else{
-    clearScreen("first-section", "delete-section");
-    printProducts("delete-section");
+        clearScreen("first-section", "delete-section");
+        printProducts("delete-list");
     }
+}
+function eliminate2(){
+        clearScreen("final-section", "delete-section");
+        printProducts("delete-list");
 }
 
 function deleteProduct(){
@@ -127,11 +139,11 @@ function deleteProduct(){
 
     if(index != -1){
         if(prompt("¿Seguro desea eliminar este producto? Escriba si o no.") == "si"){
-            deleted = categories[categoryItem].items.splice(itemToDelete, index+1);
+            deleted = categories[categoryItem].items.splice(index, 1);
             console.log(deleted);
             alert(`El producto ${deleted} ha sido eliminado exitosamente`);
             categoryItem = -1;
-            eliminate();
+            clearScreen("delete-section", "first-section");
         }
     }else{
         alert("El producto a eliminar no se encuentra en el carrito");
