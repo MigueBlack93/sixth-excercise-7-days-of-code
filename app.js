@@ -60,7 +60,6 @@ let categories = [
         items: []
     }
 ];
-
 let flag = 0;
 
 function selecElement(id){
@@ -88,8 +87,8 @@ function addProduct(){
         if(categories[i].category == selectedCategory){
             categories[i].items.push(item);
         }
-
     }
+    flag = 1;
     selecElement("product").value = "";
     clearScreen("second-section", "first-section");
 }
@@ -111,12 +110,17 @@ function finish(){
 }
 
 function eliminate(){
+    if(flag==0){
+        alert("¡Todavía no se ha agregado ningún producto al carrito!");
+    }
+    else{
     clearScreen("first-section", "delete-section");
     printProducts("delete-section");
+    }
 }
 
 function deleteProduct(){
-    if (prompt("Seguro desea eliminar este elemento. Escriba si o no.") == "si"){
+    if (prompt("¿Seguro desea eliminar este elemento? Escriba si o no.") == "si"){
         
     }
 }
