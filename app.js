@@ -61,6 +61,8 @@ let categories = [
     }
 ];
 
+let flag = 0;
+
 function selecElement(id){
     return document.getElementById(id);
 }
@@ -94,11 +96,35 @@ function addProduct(){
 
 function finish(){
     clearScreen("first-section", "final-section");
+    printProducts("final-section");
+    /*
+    categories.forEach(category => {
+        h3Title.textContent += `${category.category}:`;
+        category.items.forEach(items => {
+            pItems.textContent += `- ${category.items}`;
+        });
+    });
+
+    fatherElement.appendChild(h3Title);
+    fatherElement.appendChild(pItems);
+    }*/
+}
+
+function eliminate(){
+    clearScreen("first-section", "delete-section");
+    printProducts("delete-section");
+}
+
+function deleteProduct(){
+    if (prompt("Seguro desea eliminar este elemento. Escriba si o no.") == "si"){
+        
+    }
+}
+
+function printProducts(idSection){
+    let fatherElement = selecElement(idSection);
 
     for(i = 0 ; i < categories.length ; i++){
-
-        let fatherElement = selecElement("final-section");
-
         let h3Title = document.createElement("h3");
         let h3Text = document.createTextNode(`${categories[i].category}:`);
 
@@ -111,6 +137,5 @@ function finish(){
             pItems.textContent += `${categories[i].items[a]}, `;
             fatherElement.appendChild(pItems);
         }
-    
     }
 }
