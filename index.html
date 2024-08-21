@@ -126,19 +126,27 @@
                 <option value="Perfumería">Perfumería</option>
                 <option value="Pescados y Mariscos">Pescados y Mariscos</option>
             </select>            
-            
             <button onclick="addProduct()">Agregar</button>
         </section>
 
         <section id="final-section" hidden>
-            <h2>Lista de Compras:</h2>
+            <div id="results">
+                <h2>Lista de Compras:</h2>
+            </div>
+            <div>
+                <h2><br>¿Desea agregar o eliminar otro producto?</h2>
+                <button onclick="eliminate2()">Eliminar</button>
+                <button onclick="nextPage2()">Agregar</button>
+            </div>
         </section>
 
         <section id="delete-section" hidden>
             <h2>Elije que producto deseas eliminar:</h2>
             <input type="text" id="delete">
             <button onclick="deleteProduct()">Eliminar</button>
-            <h2><br><br>Lista de elementos hasta ahora:</h2>
+            <div id="delete-list">
+                <h2><br><br>Lista de elementos hasta ahora:</h2>
+            </div>
         </section>
     </main>
 
