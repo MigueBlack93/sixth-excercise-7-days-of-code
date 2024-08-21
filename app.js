@@ -61,6 +61,7 @@ let categories = [
     }
 ];
 let flag = 0;
+let categoryItem = -1;
 
 function selecElement(id){
     return document.getElementById(id);
@@ -120,8 +121,33 @@ function eliminate(){
 }
 
 function deleteProduct(){
-    if (prompt("¿Seguro desea eliminar este elemento? Escriba si o no.") == "si"){
-        
+    let itemToDelete = selecValue("delete");
+    let index = searchItem(itemToDelete);
+    let deleted = 0;
+
+    if(index != -1){
+        if(prompt("¿Seguro desea eliminar este producto? Escriba si o no.") == "si"){
+            deleted = categories[categoryItem].items.splice(index, index+1);
+            prompt(`El producto ${deleted} ha sido eliminado exitosamente`);
+            categoryItem = -1;
+            eliminate();
+        }
+    }else{
+        alert("El producto a eliminar no se encuentra en el carrito");
+    }
+}
+
+function searchItem(itemToDelete){    
+    for(i = 0 ; i < categories.length ; i++){
+        let indice = categories[i].items.indexOf(itemToDelete);
+
+        if(indice != -1){
+        categoryItem = i;
+        return indice;
+        }
+    }
+    if(categoryItem ==- 1){
+        return -1;
     }
 }
 
