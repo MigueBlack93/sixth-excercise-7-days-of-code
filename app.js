@@ -105,17 +105,6 @@ function finish(){
         clearScreen("first-section", "final-section");
         printProducts("results");
     }
-    /*
-    categories.forEach(category => {
-        h3Title.textContent += `${category.category}:`;
-        category.items.forEach(items => {
-            pItems.textContent += `- ${category.items}`;
-        });
-    });
-
-    fatherElement.appendChild(h3Title);
-    fatherElement.appendChild(pItems);
-    }*/
 }
 
 function eliminate(){
@@ -143,6 +132,7 @@ function deleteProduct(){
             console.log(deleted);
             alert(`El producto ${deleted} ha sido eliminado exitosamente`);
             categoryItem = -1;
+            selecElement("delete").value = "";
             clearScreen("delete-section", "first-section");
         }
     }else{
@@ -166,6 +156,16 @@ function searchItem(itemToDelete){
 
 function printProducts(idSection){
     let fatherElement = selecElement(idSection);
+
+    while (fatherElement.firstChild) {
+        fatherElement.removeChild(fatherElement.firstChild);
+    }
+
+    let h2Title = document.createElement("h2");
+    let h2Text = document.createTextNode("Lista de elementos hasta ahora:");
+
+    fatherElement.appendChild(h2Title);
+    h2Title.appendChild(h2Text);
 
     for(i = 0 ; i < categories.length ; i++){
         let h3Title = document.createElement("h3");
